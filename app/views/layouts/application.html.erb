@@ -10,6 +10,23 @@
   </head>
 
   <body>
+
+    <nav>
+
+      <%= link_to  "inicio", root_path %>
+
+      <% if user_signed_in? %>
+        <p>Bienvenido <%= current_user.email %></p>
+        <%= link_to  "cerrar sesion", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to  "iniciar sesion", new_user_session_path %>
+        <%= link_to  "crear cuenta", new_user_registration_path %>
+      <% end %>
+    </nav>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    
     <%= yield %>
   </body>
 </html>
