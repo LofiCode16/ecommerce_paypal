@@ -17,7 +17,7 @@ Category.create(name: 'hogar')
         [
             {
                 name: Faker::House.furniture,
-                price: rand(10000..50000), 
+                price: rand(10..500), 
                 quant: rand(1..100)
             }
         ]
@@ -35,7 +35,7 @@ Category.create(name: 'computacion')
         [
             {
                 name: Faker::Computer.type,
-                price: rand(10000..50000),
+                price: rand(100..5000),
                 quant: rand(1..100)
             }
         ]
@@ -54,7 +54,7 @@ Category.create(name: 'libros')
         [
             {
                 name: Faker::Book.title,
-                price: rand(10000..50000),
+                price: rand(10..500),
                 quant: rand(1..100)
             }
         ]

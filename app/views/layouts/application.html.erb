@@ -16,8 +16,9 @@
       <%= link_to  "inicio", root_path %>
 
       <% if user_signed_in? %>
-        <p>Bienvenido <%= current_user.email %></p>
+        <span>Bienvenido <%= current_user.email %></span>
         <%= link_to  "cerrar sesion", destroy_user_session_path, method: :delete %>
+        <%= link_to  "Ver carrito", cart_path %>
       <% else %>
         <%= link_to  "iniciar sesion", new_user_session_path %>
         <%= link_to  "crear cuenta", new_user_registration_path %>

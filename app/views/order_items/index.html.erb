@@ -1,0 +1,33 @@
+<h2>Carrito de compras</h2>
+
+<% unless @order_items %>
+    <h3>No hay productos en el carrito</h3>
+<% else %>
+
+    <table>
+        <thead>
+            <th>producto</th>
+            <th>cantidad</th>
+            <th>precio unitario</th>
+            <th>total</th>
+        </thead>
+
+        <tbody>
+            <% @order_items.each do |item| %>
+                <tr>
+                    <td><%= item.product.name %></td>
+                    <td><%= item.quantity %></td>
+                    <td><%= item.product.price %></td>
+                    <td><%= item.total %></td>
+                </tr>
+            <% end %>
+
+            <tr>
+                <td colspan="3" style="text-align: right;"><strong>Total</strong></td>
+                <td><%= @order_items[0].order.total %></td>
+            </tr>    
+        </tbody>
+
+    </table>
+
+<% end %>
