@@ -8,8 +8,12 @@
 
 Category.destroy_all
 Product.destroy_all
+OrderItem.destroy_all
+Order.destroy_all
+PaymentMethod.destroy_all
 
 Category.create(name: 'hogar')
+PaymentMethod.create(name: 'PayPal Express Checkout', code: 'PEC')
 
 5.times do
 

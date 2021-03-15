@@ -5,7 +5,7 @@ Rails.application.configure do
   config.after_initialize do
     ActiveMerchant::Billing::Base.mode = :test
     paypal_options = {
-      login: ENV['PAYPAL_USER_EMAIL'],
+      login: ENV['PAYPAL_USER'],
       password: ENV['PAYPAL_USER_PASSWORD'],
       signature: ENV['PAYPAL_SIGNATURE']
     }

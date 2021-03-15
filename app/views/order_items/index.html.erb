@@ -1,6 +1,6 @@
 <h2>Carrito de compras</h2>
 
-<% unless @order_items.length > 0 %>
+<% if @order.nil? || @order.order_items.length < 1 %>
     <h3>No hay productos en el carrito</h3>
 <% else %>
 
@@ -30,5 +30,7 @@
         </tbody>
 
     </table>
+
+    <%= link_to  "Pagar con PayPal", pay_with_paypal_order_items_path(order_id: @order.id), method: :post %>
 
 <% end %>
