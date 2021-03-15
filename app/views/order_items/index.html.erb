@@ -1,6 +1,6 @@
 <h2>Carrito de compras</h2>
 
-<% unless @order_items %>
+<% unless @order_items.length > 0 %>
     <h3>No hay productos en el carrito</h3>
 <% else %>
 
@@ -19,12 +19,13 @@
                     <td><%= item.quantity %></td>
                     <td><%= item.product.price %></td>
                     <td><%= item.total %></td>
+                    <td><%= link_to  "quitar del carrito", destroy_cart_item_path(item.id), method: :delete %></td>
                 </tr>
             <% end %>
 
             <tr>
                 <td colspan="3" style="text-align: right;"><strong>Total</strong></td>
-                <td><%= @order_items[0].order.total %></td>
+                <td><%= @order.total %></td>
             </tr>    
         </tbody>
 

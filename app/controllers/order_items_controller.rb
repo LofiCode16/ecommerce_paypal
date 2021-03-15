@@ -16,8 +16,17 @@ class OrderItemsController < ApplicationController
             @order_item.update(quantity: @order_item.quantity + 1, total: @product.price * (@order_item.quantity + 1))
         end
 
+        @order.update(total: @order.order_items.pluck(:total).sum)
+
         redirect_to root_path, notice: 'producto añadido al carro'
     end
 
-    
+    def destroy
+        @item = OrderItem.find(params[:item_id])
+
+        @item.order.update(total: @item.order.total - @item.total)
+        @item.destroy
+
+        redirect_to cart_path, notice: 'producto quitado del carro'
+    end 
 end

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get 'cart', to: 'order_items#index', as: 'cart'
   post 'cart/:product_id/add', to: 'order_items#create', as: 'cart_add'
+  delete 'cart/:item_id/remove', to: 'order_items#destroy', as: 'destroy_cart_item'
 
   root 'products#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
