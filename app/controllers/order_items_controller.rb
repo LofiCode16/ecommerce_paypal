@@ -72,7 +72,7 @@ class OrderItemsController < ApplicationController
         if response.success?
             payment = Payment.find_by(token: response.token)
             order = payment.order
-            order.update(payed: true)
+            order.payed = true
 
             ActiveRecord::Base.transaction do
                 order.save!

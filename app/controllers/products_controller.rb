@@ -4,6 +4,14 @@ class ProductsController < ApplicationController
   # GET /products or /products.json
   def index
     @products = Product.all.includes(:categories)
+    @categories = Category.all 
+
+    @products_per_category = {}
+
+    @categories.each do |category|
+      @products_per_category[category.name] = category.products.count
+    end
+
   end
 
   # GET /products/1 or /products/1.json
