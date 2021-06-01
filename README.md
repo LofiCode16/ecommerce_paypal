@@ -1,24 +1,28 @@
-# README
+# Ecommerce PayPal
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ecommerce creado en Rails con PayPal como pasarela de pago.
 
-Things you may want to cover:
+El proyecto consiste en un Ecommerce básico, con autenticación de usuario y proceso de pago utilizando PayPal, además, permite ver gráficos con la distribución de productos.
 
-* Ruby version
+## Dependencias
 
-* System dependencies
+* Chartkick
+* Highcharts
+* ActiveMerchant
+* RSpec
 
-* Configuration
+Se ha utilizado ActiveMerchant para el manejo de los pagos, en reemplazo de paypal-sdk, el cual ya no tiene soporte y no cuenta con certificados SSL actualizados, aunque es posible editar los SSL existentes para realizar la actualización.
 
-* Database creation
+Se han añadido test en modelos y controladores para las funcionalidades básicas utilizando RSpec.
 
-* Database initialization
+## Puesta en marcha
 
-* How to run the test suite
+1. Clona este repositorio
+2. Instala las dependencias con `bundle install` y `yarn install` 
+3. Crea la base de datos con `rails db:setup`
+4. Levanta el servidor con `rails s`
 
-* Services (job queues, cache servers, search engines, etc.)
+## Testing
 
-* Deployment instructions
-
-* ...
+Para ejecutar los test, puedes ejecutar en el terminal `rspec ruta_del_test`, donde "ruta_del_test" es la ruta del test a ejecutar, ejemplo: 
+`rspec spec/user_spec.rb`
