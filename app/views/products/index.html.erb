@@ -40,7 +40,7 @@
         <td><%= number_to_currency(product.price, precision: 0, unit: 'CLP$', delimiter: '.' ) %></td>
         <td><%= product.quant %></td>
         <td><%= link_to 'Show', product %></td>
-        <td><%= link_to  "Añadir al carrito", cart_add_path(product.id), method: :post %></td>
+        <td><%= link_to  "Añadir al carrito", cart_add_path(product.id), method: :post if user_signed_in? %></td>
       </tr>
     <% end %>
   </tbody>
